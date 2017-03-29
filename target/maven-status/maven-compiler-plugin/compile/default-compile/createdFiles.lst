@@ -1,0 +1,5 @@
+com\mincom\mib\camel\OptionalRouteBuilder.class
+com\mincom\mib\custom\AccountCodeExtractRouteBuilder.class
+com\mincom\mib\custom\WorkOrderExtractRouteBuilder.class
+com\mincom\mib\custom\ExchangeController2.class
+com\mincom\mib\custom\ExchangeController.class

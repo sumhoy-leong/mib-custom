@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+         http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context.xsd
+         http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd"
+	default-autowire="byType">
+
+	<context:component-scan base-package="com.mincom.mib" />
+	<context:mbean-export/>
+	<context:property-placeholder location="classpath:META-INF/spring/settings.properties,classpath:META-INF/spring/sql.properties" />
+		
+	<bean name="ellipseDS" class="org.springframework.jdbc.datasource.DriverManagerDataSource" primary="true">
+    	<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
+    	<property name="url" value="jdbc:oracle:thin:@10.128.151.119:1521:prddb01" />
+    	<property name="username" value="el85sup" />
+    	<property name="password" value="ellipse" />
+	</bean>
+<!--     
+	<bean id="ellipseDS" class="org.springframework.jndi.JndiObjectFactoryBean">
+    	<property name="jndiName" value="java:jboss/datasources/EllipseDatasource"/>
+	</bean>
+	 -->
+    <!-- configure the Camel SQL component to use the JDBC data source       
+    <bean id="sql" class="org.apache.camel.component.sql.SqlComponent">
+      <property name="dataSource" ref="ellipseDS"/>
+    </bean>       
+    -->
+</beans>
