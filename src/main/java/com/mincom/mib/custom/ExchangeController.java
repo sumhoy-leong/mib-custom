@@ -12,7 +12,6 @@ public class ExchangeController {
 	@SuppressWarnings("unchecked")
 	public List<Map<String, Object>> resultsetToCSV(Exchange exchange) throws Exception {
 
-		System.out.println("ExchangeController DEBUG");
 	    System.out.println("Processing " + exchange.getIn().getBody());
 
 	    globalStationMap = (List<Map<String, Object>>) exchange.getIn().getBody();
