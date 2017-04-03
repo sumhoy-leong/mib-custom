@@ -11,7 +11,8 @@
 
 	<context:component-scan base-package="com.mincom.mib" />
 	<context:mbean-export/>
-	<context:property-placeholder location="classpath:META-INF/spring/settings.properties,classpath:META-INF/spring/sql.properties" />
+	<context:property-placeholder local-override="true" location="classpath:META-INF/spring/settings.properties,classpath:META-INF/spring/sql.properties" />
+	
 		
 	<bean name="ellipseDS" class="org.springframework.jdbc.datasource.DriverManagerDataSource" primary="true">
     	<property name="driverClassName" value="oracle.jdbc.OracleDriver" />
@@ -19,14 +20,5 @@
     	<property name="username" value="el85sup" />
     	<property name="password" value="ellipse" />
 	</bean>
-<!--     
-	<bean id="ellipseDS" class="org.springframework.jndi.JndiObjectFactoryBean">
-    	<property name="jndiName" value="java:jboss/datasources/EllipseDatasource"/>
-	</bean>
-	 -->
-    <!-- configure the Camel SQL component to use the JDBC data source       
-    <bean id="sql" class="org.apache.camel.component.sql.SqlComponent">
-      <property name="dataSource" ref="ellipseDS"/>
-    </bean>       
-    -->
+
 </beans>
